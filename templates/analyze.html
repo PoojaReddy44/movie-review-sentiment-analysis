@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Review Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(89, 172, 89);
+            padding: 30px;
+            text-align: center;
+        }
+        textarea {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Review Sentiment Analyzer 🎞️</h1>
+    <form method="post" action="/analyze">
+        <textarea name="review" rows="5" cols="50" placeholder="Type your review here...">{{ review or '' }}</textarea><br><br>
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if sentiment %}
+    <div class="result">
+        <h2>Predicted Sentiment: {{ sentiment }}</h2>
+        <h3>Confidence: {{ confidence }}</h3>
+    </div>
+    {% endif %}
+</body>
+</html>
